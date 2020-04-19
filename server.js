@@ -21,6 +21,9 @@ mongoose.connect("mongodb://localhost:27017/redditish", {
 
 
 // Routes
+app.use('/', (req, res) => {
+  res.send("Hello World")
+})
 app.use('/auth', require('./routes/authRouter.js'));
 // if any request hits /api ( /api/whatever ) it requires a token
 app.use('/api', expressJwt({secret: process.env.SECRET}))
