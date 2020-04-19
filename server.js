@@ -5,13 +5,11 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const expressJwt = require('express-jwt')
 const PORT = process.env.PORT || 7000;
-const cors = require('cors')
 
 
 
 app.use(express.json());
 app.use(morgan('dev'));
-app.use(cors())
 
 
 mongoose.connect("mongodb://localhost:27017/redditish", {
