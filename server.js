@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 
-mongoose.connect("mongodb://localhost:27017/redditish", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/redditish", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
