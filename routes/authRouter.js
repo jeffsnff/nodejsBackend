@@ -2,7 +2,7 @@ const express = require('express');
 const authRouter = express.Router();
 const User = require('../models/user.js');
 const jwt = require('jsonwebtoken');
-
+require('dotenv').config();
 
 authRouter.post('/signup', (req, res, next) => {
 		// Check if the username already exist

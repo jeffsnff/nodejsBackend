@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const expressJwt = require('express-jwt')
 const PORT = process.env.PORT || 7000;
-const SECRET = "yolo brokenman bleeding heraticmenow"
+const SECRET = process.env.SECRET || "yolo brokenman bleeding heraticmenow"
 
 
 
