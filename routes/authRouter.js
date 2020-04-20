@@ -31,7 +31,7 @@ authRouter.post('/signup', (req, res, next) => {
 					
 					// Generate a token
 					const token = jwt.sign(savedUser.withoutPassword(), process.env.SECRET);
-          console.log(`%%%%%%%%%%%%%%%%%% ${token} %%%%%%%%%%%%%%%%%%%%%%%%`)
+
 					// send the response with users info and token
 					return res.status(201).send({user: savedUser.withoutPassword(), token})
 				})
