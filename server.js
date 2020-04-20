@@ -6,12 +6,12 @@ const morgan = require('morgan');
 const expressJwt = require('express-jwt')
 const PORT = process.env.PORT || 7000;
 const SECRET = process.env.SECRET || "yolo brokenman bleeding heraticmenow"
-
+const cors = require('cors')
 
 
 app.use(express.json());
 app.use(morgan('dev'));
-
+app.use(cors())
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/redditish", {
     useNewUrlParser: true,
