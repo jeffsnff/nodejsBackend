@@ -26,6 +26,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/redditish
 //   res.send("Hello World")
 // })
 app.use('/auth', require('./routes/authRouter.js'));
+
+app.use('/beta', require('./routes/userRouter.js'));
 // if any request hits /api ( /api/whatever ) it requires a token
 app.use('/api', expressJwt({secret: SECRET }))
 app.use('/api/post', require('./routes/postRouter.js'))
