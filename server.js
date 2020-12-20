@@ -12,12 +12,7 @@ const cors = require('cors')
 app.use(express.json());
 app.use(morgan('dev'));
 // app.use(cors())
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  next();
-});
+
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/redditish", {
     useNewUrlParser: true,
@@ -37,6 +32,14 @@ app.use('/beta', require('./routes/userRouter.js'));
 // if any request hits /api ( /api/whatever ) it requires a token
 app.use('/api', expressJwt({secret: SECRET }))
 app.use('/api/post', require('./routes/postRouter.js'))
+
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  next();
+});
 
 // Error Handling
 app.use((err, req, res, next) => {
