@@ -23,9 +23,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/redditish
 
 
 // Routes
-app.use('/', (req, res) => {
-  res.send("Hello World")
-})
+// app.use('/', (req, res) => {
+//   res.send("Hello World")
+// })
 app.use('/auth', require('./routes/authRouter.js'));
 
 app.use('/beta', require('./routes/userRouter.js'));
